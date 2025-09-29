@@ -96,8 +96,8 @@ function sendEmailNotification($name, $email, $message) {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'evanskitonga7@gmail.com'; // Your Gmail
-        $mail->Password = 'jtio qvab zjic ljlp'; // Gmail App Password
+        $mail->Username = 'evanskitonga7@gmail.com';
+        $mail->Password = ''; //  App Password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
         
