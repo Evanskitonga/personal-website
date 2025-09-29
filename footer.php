@@ -2,7 +2,7 @@
 // footer.php
 ?>
 <footer style="padding:30px; text-align:center;">
-  <p>&copy; <?=date('Y')?> MyPortfolio. All rights reserved.</p>
+  <p>&copy; <?=date('Y')?> SnavyTosh. All rights reserved.</p>
 </footer>
 
 <script>
