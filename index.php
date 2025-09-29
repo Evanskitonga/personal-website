@@ -82,5 +82,61 @@
 
 <?php include 'footer.php'; ?>
 
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+  
+  if (menuToggle) {
+    menuToggle.addEventListener('click', function() {
+      nav.classList.toggle('active');
+    });
+  }
+  
+  // Close mobile menu when clicking on a link
+  const navLinks = document.querySelectorAll('nav a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('active');
+    });
+  });
+  
+  // Scroll animations
+  const fadeElements = document.querySelectorAll('.service-card, .portfolio-item, .about-grid > *');
+  
+  const appearOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -100px 0px"
+  };
+  
+  const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('appear');
+      appearOnScroll.unobserve(entry.target);
+    });
+  }, appearOptions);
+  
+  fadeElements.forEach(element => {
+    element.classList.add('fade-in');
+    appearOnScroll.observe(element);
+  });
+  
+  // Header background on scroll
+  window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 100) {
+      header.style.background = 'rgba(16, 18, 20, 0.95)';
+      header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+    } else {
+      header.style.background = 'rgba(16, 18, 20, 0.85)';
+      header.style.boxShadow = 'none';
+    }
+  });
+});
+</script>
+
 </body>
 </html>
